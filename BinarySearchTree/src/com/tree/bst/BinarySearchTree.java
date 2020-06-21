@@ -1,7 +1,7 @@
 package com.tree.bst;
 
 public class BinarySearchTree {
-	private TreeNode root;
+	TreeNode root;
 	
 	//constructor
 	public BinarySearchTree() {

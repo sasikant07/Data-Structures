@@ -48,25 +48,25 @@ public class TestBST {
 						
 				case 2: System.out.println("Enter the element you want to delete in the tree : ");
 						ele = sc.nextInt();
-						bst.delete(root, ele);
+						bst.delete(bst.root, ele);
 						break;
 						
-				case 3:	bst.inorder(root);
+				case 3:	bst.inorder(bst.root);
 						break;
 						
-				case 4: bst.preorder(root);
+				case 4: bst.preorder(bst.root);
 						break;
 						
-				case 5: bst.postorder(root);
+				case 5: bst.postorder(bst.root);
 						break;
 						
 				case 6: System.out.println("Root node is : "+bst.getRootNode());
 						break;
 						
-				case 7: System.out.println("Minimum element in the tree is : "+bst.findMin(root));
+				case 7: System.out.println("Minimum element in the tree is : "+bst.findMin(bst.root));
 						break;
 						
-				case 8: System.out.println("Maximum element in the tree is : "+bst.findMax(root));
+				case 8: System.out.println("Maximum element in the tree is : "+bst.findMax(bst.root));
 						break;
 						
 				case 9: System.out.println("Enter the elemnets to search in the tree : ");
@@ -80,7 +80,7 @@ public class TestBST {
 						
 				case 11: bst.displayData(); break;
 				
-				case 10: System.out.println("Total height of the tree : "+bst.heightOfTree(root));
+				case 10: System.out.println("Total height of the tree : "+bst.heightOfTree(bst.root));
 						break;
 						
 				default: System.out.println("Enter correct choice!");
