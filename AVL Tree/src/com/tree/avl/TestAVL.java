@@ -9,7 +9,7 @@ public class TestAVL {
 		
 		AVLTree tree = new AVLTree();
 		
-		// int ele;
+		 int ele;
 		
 		boolean exit = false;
 		
@@ -25,18 +25,21 @@ public class TestAVL {
 			System.out.println("\n");
 			System.out.println("Enter your choice : ");
 			
-			switch(sc.nextInt()) {
+			switch (sc.nextInt()) {
 				case 0 : System.out.println("You are exited !"); 
 						 System.exit(0);
 						 break;
 			 
 				case 1: System.out.println("Enter the elements you want to add : ");
-						int ele = sc.nextInt();
+						ele = sc.nextInt();
 						tree.root = tree.insert(tree.root, ele);
 						tree.printTree(tree.root, "", true);
 						break;
 				
-				case 2:
+				case 2: System.out.println("Enter the elements you want to delete : ");
+						ele = sc.nextInt();
+						tree.root = tree.delete(tree.root, ele);
+						tree.printTree(tree.root, "", true);
 						break;
 						
 				case 3: tree.printTree(tree.root, "", true);

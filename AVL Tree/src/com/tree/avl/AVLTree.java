@@ -92,6 +92,63 @@ public class AVLTree {
 		return current;
 	}
 	
+	// Delete a node
+	public Node delete(Node root, int ele ) {
+		// Find the node to be deleted and remove it
+		if (root == null)
+			return root;
+		else if (ele < root.item)
+			root.left = delete(root.left, ele);
+		else if (ele > root.item)
+			root.right = delete(root.right, ele);
+		else {
+			// the element has been found, now delete it
+			if ((root.left == null) || (root.right == null)) {
+				Node temp = null;
+				if (temp == root.left)
+					temp = root.right;
+				else
+					temp = root.left;
+				if (temp == null) {
+					temp = root;
+					root = null;
+				} else 
+					root = temp;
+			} else {
+				Node temp = nodeWithMinimumValue(root.right);
+				root.item = temp.item;
+				root.right = delete(root.right, ele);
+			}
+		}
+		
+		if (root == null)
+			return root;
+		
+		// Update the balance factor of each node and balance the tree
+		root.height = max(height(root.left), height(root.right)) + 1;
+		int balanceFactor = getBalanceFactor(root);
+		
+		if (balanceFactor > 1) {
+			if (getBalanceFactor(root.left) >= 0) {
+				return rightRotate(root);
+			} else {
+				root.left = leftRotate(root.left);
+				return rightRotate(root);
+			}
+		}
+		
+		if (balanceFactor < -1) {
+			if (getBalanceFactor(root.right) <= 0) {
+				return leftRotate(root);
+			} else {
+				root.right = rightRotate(root.right);
+				return rightRotate(root);
+			}
+		}
+		
+		return root;
+	}
+	
 	// PreOrder processor
 	public void preOrder(Node node) {
 		if (node !=  null) {
