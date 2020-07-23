@@ -6,3 +6,7 @@ Data-Structures concepts such as Stack, Queue, Linked List, Tree, Searching, Sor
  
  -> If asked about dense(complete) graph then it would be better to use Adjancency matrix and the space complexity is @(n^2).
 
+# Data structures used in DFS and BFS
+
+DFS = Stack
+BFS = Queue
